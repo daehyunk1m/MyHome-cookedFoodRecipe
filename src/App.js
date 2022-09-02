@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <List/>
-      Very first version
+      Very first version!
     </div>
   );
 }
