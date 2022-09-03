@@ -10,11 +10,12 @@ const List = () => {
   return(
     <FirstDiv>
       <Header/>
-      List 페이지 <br/>
-      <TestBtn color={colors.red}>red</TestBtn>
-      <TestBtn color={colors.green}>green</TestBtn>
-      <TestBtn color={colors.yellow}>yellow</TestBtn>
-      <TestBtn color={colors.pink}>pink</TestBtn>
+      <BtnWrap>
+     
+        <TestBtn color={colors.green}>등록하기</TestBtn>
+        
+      </BtnWrap>
+      
       <Post></Post>
     </FirstDiv>
   )
@@ -26,12 +27,30 @@ const List = () => {
 export default List;
 
 const FirstDiv = styled.div`
+  width: 100vw;
   height: 100vh;
+  margin: auto;
+  /* height: 100vh; */
   /* background-color: green; */
 `
 
+const BtnWrap = styled.div`
+  width: 100vw;
+  height: 100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
 const TestBtn = styled.button`
-  width: 50px;
-  height: 30px;
+  width: 15%;
+  height: 40%;
+  border: none;
+  border-radius: 6px;
   background-color: ${props => props.color};
+
+  color: white;
+  font-size: 1rem;
+  
 `
