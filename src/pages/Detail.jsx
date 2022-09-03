@@ -5,6 +5,7 @@ const Detail = () => {
 
   return (
     <div>
+      detail modal page
       <DetailContainer/>
     </div>
   )

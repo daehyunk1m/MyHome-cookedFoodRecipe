@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { colors } from "../lib/constants/colors";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import Header from "../components/common/Header";
 import Post from "../components/list/Post";
 
 
 const List = () => {
+  const navigate = useNavigate()
   // const recipeContents = useSelector((module) => module.recipe.recipe) 
   
   return(
@@ -15,7 +17,7 @@ const List = () => {
       <Header/>
       <BtnWrap>
      
-        <TestBtn color={colors.black}>등록하기</TestBtn>
+        <TestBtn color={colors.black} onClick={() => navigate(`/api/postlist/create`)}>등록하기</TestBtn>
         
       </BtnWrap>
       
@@ -56,5 +58,13 @@ const TestBtn = styled.button`
   color: white;
   font-size: 1rem;
   font-weight: 900;
+
+  &:hover{
+        font-weight: 900;
+        background-color: ${colors.red};
+        color: white;
+        cursor: pointer;
+    }
+
   
 `
