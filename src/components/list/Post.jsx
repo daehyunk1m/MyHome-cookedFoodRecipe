@@ -19,8 +19,8 @@ const Post = () => {
 export default Post;
 
 const StImg = styled.img`
-  width: 15vw;
-  height: 15vh;
+  width: 20vw;
+  height: 20vh;
 
   background-color: blue;
 `

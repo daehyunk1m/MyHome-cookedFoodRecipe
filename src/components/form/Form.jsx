@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const Detail = () => {
+const Form = () => {
 
   return(
     <div>
-
+      detailpage
     </div>
   )
 }
 
-export default Detail;
+export default Form;
 

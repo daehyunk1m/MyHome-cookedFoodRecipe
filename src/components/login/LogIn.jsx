@@ -4,12 +4,12 @@ import { colors } from "../../lib/constants/colors";
 import Header from "../common/Header";
 
 const LogIn = () => {
-const [value, setValue] = useState('');
-const { loginId, password } = input
-const user = {
-  loginId: "",
-  password: ""
-};
+// const [value, setValue] = useState('');
+// const { loginId, password } = input
+// const user = {
+//   loginId: "",
+//   password: ""
+// };
 
   return(
     <div>
