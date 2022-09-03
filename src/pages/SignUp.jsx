@@ -1,12 +1,19 @@
 import React from "react";
+import styled from "styled-components";
+import SignupForm from "../components/SignupForm";
+import Header from "../components/Header";
 
-const SignUp = () => {
-
+const Signup = () => {
   return (
-    <div>
+    <StAddForm>
+      <Header />
+      <SignupForm />
+    </StAddForm>
+  );
+};
 
-    </div>
-  )
-}
+export default Signup;
 
-export default SignUp;
+const StAddForm = styled.div`
+  padding-top: 140px;
+`;

@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import LoginForm from "../components/LoginForm";
+import CreateForm from "../components/CreateForm";
 import Header from "../components/Header";
 
-const Login = () => {
+const Create = () => {
   return (
     <StAddForm>
       <Header />
-      <LoginForm />
+      <CreateForm />
     </StAddForm>
   );
 };
 
-export default Login;
+export default Create;
 
 const StAddForm = styled.div`
   padding-top: 140px;
