@@ -1,12 +1,11 @@
 import React from 'react';
-import List from './pages/List';
+import List from './pages/list';
 
 
 function App() {
   return (
     <div>
       <List/>
-      Very first version!
     </div>
   );
 }

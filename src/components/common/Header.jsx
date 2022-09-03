@@ -8,7 +8,12 @@ const Header = () => {
   return (
     <HeaderWrap color={colors.warmgray}>
       <HeaderLogo src={logo} alt="logo" />
-      <h1>Header</h1>7
+      <h1>나의 집밥 레시피</h1>
+      <UserWrap>
+        <StUser>닉네임</StUser>
+        <StUser>로그인</StUser>
+        <StUser>회원가입</StUser>
+      </UserWrap>
     </HeaderWrap>
   )
 }
@@ -17,6 +22,8 @@ export default Header;
 
 const HeaderWrap = styled.div`
   width: 100vw;
+  min-height: fit-content;
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,6 +33,18 @@ const HeaderWrap = styled.div`
 
 const HeaderLogo = styled.img`     
   
-  height: 12vmin;
+  height: 8vmin;
+ 
   pointer-events: none;
+`
+
+const UserWrap = styled.div`
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const StUser = styled.div`
+  margin: 10px;
 `
