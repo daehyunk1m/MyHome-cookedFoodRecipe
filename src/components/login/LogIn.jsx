@@ -20,7 +20,7 @@ const LogIn = () => {
           <input name="loginId" id="loginId" type="text" />
           <label htmlFor="password">비밀번호</label>
           <input name="password" id="password" type="password" />
-          <button onClick={''} color={colors.green}>로그인</button>
+          <button color={colors.green}>로그인</button>
         </div>
         <hr/>
         <button color={colors.yellow}>카카오톡으로 로그인</button>

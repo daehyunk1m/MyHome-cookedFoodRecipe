@@ -14,8 +14,8 @@ const Header = () => {
       <HeaderTitle color={colors.green} onClick={() => navigate(`/api/postlist`)}>나의 집밥 레시피</HeaderTitle>
       <UserWrap>
         <StUser >닉네임</StUser>
-        <UserNav onClick={() => {navigate(`/auth/signup`)}}>로그인</UserNav>
-        <UserNav onClick={() => {navigate(`/auth/login`)}}>회원가입</UserNav>
+        <UserNav onClick={() => {navigate(`/auth/signup`)}}>회원가입</UserNav>
+        <UserNav onClick={() => {navigate(`/auth/login`)}}>로그인</UserNav>
       </UserWrap>
     </HeaderWrap>
   )
@@ -27,7 +27,7 @@ const HeaderWrap = styled.div`
   height: 10vh;
   width: 100vw;
   min-height: fit-content;
-  padding: 0px 8px;
+  /* padding: 0px 8px; */
 
   display: flex;
   align-items: center;
@@ -39,6 +39,7 @@ const HeaderWrap = styled.div`
 
 const HeaderLogo = styled.img`     
   height: 8vmin;
+  margin-left: 0.8vw;
   cursor: pointer;
   `
 
@@ -52,7 +53,7 @@ const HeaderLogo = styled.img`
 `
 
 const UserWrap = styled.div`
-  width: 18vw;
+  width: 16vw;
   display: flex;
   align-items: center;
   justify-content: center;

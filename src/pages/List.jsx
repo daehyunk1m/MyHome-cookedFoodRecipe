@@ -13,30 +13,31 @@ const List = () => {
   // const recipeContents = useSelector((module) => module.recipe.recipe) 
   
   return(
-    <FirstDiv>
-      <Header/>
+    <div>
+      <Header />
       <BtnWrap>
-     
-        <TestBtn color={colors.black} onClick={() => navigate(`/api/postlist/create`)}>등록하기</TestBtn>
-        
+          <TestBtn color={colors.black}
+            onClick={() => navigate(`/api/postlist/create`)}
+          >등록하기</TestBtn>
       </BtnWrap>
-      
-      <Post></Post>
-    </FirstDiv>
+      <PostContainer>
+        <Post /><Post /><Post /><Post />
+        <Post />
+      </PostContainer>
+    </div>
   )
-  
-
-  
-}
+};
 
 export default List;
 
-const FirstDiv = styled.div`
-  width: 100vw;
-  height: 100vh;
+const PostContainer = styled.div`
+  width: 95vw;
   margin: auto;
-  /* height: 100vh; */
-  /* background-color: green; */
+  
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  
 `
 
 const BtnWrap = styled.div`

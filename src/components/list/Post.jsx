@@ -1,19 +1,21 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { colors } from "../../lib/constants/colors";
+import { useNavigate } from "react-router-dom";
 
 const Post = ({nickname, title, likecnt, url}) => {
+  const navigate = useNavigate();
 
   return(
     <PostContainer>
-      <p>닉넴{nickname}</p>
-      <StImg/>
+      <PostNick onClick={() => navigate(`/api/postlist:postId`)}>닉넴{nickname}</PostNick>
+      <PostImg onClick={() => navigate(`/api/postlist:postId`)}/>
       {url}
       <LikectnWrap>
         <LikeSymbol >❤️</LikeSymbol>
         <LikeCtnN>100{likecnt}</LikeCtnN>
       </LikectnWrap>
-      <h3>타이틀{title}</h3>
+      <PostTitle onClick={() => navigate(`/api/postlist:postId`)}>타이틀{title}</PostTitle>
     </PostContainer>
   )
 }
@@ -23,25 +25,32 @@ export default Post;
 const PostContainer = styled.div`
 width: fit-content;
 height: fit-content;
-padding: 20px;
-margin: 10px;
-/* border: 2px solid ${colors.warmgray}; */
+padding: 20px 15px;
+margin: 20px 10px;
 border-radius: 7px;
 border: 0.5px solid gray;
 border: 0.3px solid white;
 box-shadow: 0px 0px 10px 4px rgba(100, 100, 100, 0.1);
 `
 
-const StImg = styled.img`
+const PostNick = styled.p`
+  margin-bottom: 5px;
+  cursor: pointer;
+`
+
+const PostImg = styled.img`
   width: 20vw;
   height: 20vh;
+  
 
   background-color: blue;
+  cursor: pointer;
 `
 
 const LikectnWrap = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 5px;
 `;
 
 const heart = keyframes`
@@ -56,7 +65,7 @@ const LikeSymbol = styled.div`
 
   cursor: pointer;  
   :hover {
-    animation: ${heart} 0.3s linear ;
+    animation: ${heart} 0.25s linear ;
   }
 `;
 
@@ -66,4 +75,9 @@ const LikeCtnN = styled.div`
   margin-left: 6px;
   color: ${colors.black};
   font-weight: bold;
+`
+
+const PostTitle = styled.h3`
+  margin: 15px 0px 5px 0px;
+  cursor: pointer;
 `
