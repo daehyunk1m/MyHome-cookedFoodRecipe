@@ -1,17 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const Post = () => {
+const Post = ({nickname, title, likecnt, url}) => {
 
   return(
     <div>
-      <div>닉네임</div>
+      <p>{nickname}</p>
       <StImg/>
+      {url}
       <div>
-        <div>❤️</div>
-        <div>99</div>
+        <div >❤️</div>
+        <div>{likecnt}</div>
       </div>
-      <div>title</div>
+      <div>{title}</div>
     </div>
   )
 }
