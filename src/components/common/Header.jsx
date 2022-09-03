@@ -43,7 +43,7 @@ const HeaderLogo = styled.img`
 
 const HeaderTitle = styled.h1`
   /* height: fit-content; */
-  font-size: 6vw; 
+  font-size: 5.5vw; 
   color: ${props => props.color};
   
   @media screen and (max-width: 800px){
