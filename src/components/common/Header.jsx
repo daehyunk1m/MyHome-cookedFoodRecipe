@@ -24,39 +24,56 @@ const Header = () => {
 export default Header;
 
 const HeaderWrap = styled.div`
-  height: 10vh;
-  width: 100vw;
+  height: 12vh;
+  width: 100%;
   min-height: fit-content;
-  /* padding: 0px 8px; */
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
   background-color: ${props => props.color};
-  
+  @media screen and (max-width: 600px){
+    display: inline-table;
+    align-items: center;
+    justify-content: center;
+  } 
 `
 
 const HeaderLogo = styled.img`     
-  height: 8vmin;
-  margin-left: 0.8vw;
+  height: 100%;
+  margin-left: 0.7vw;
   cursor: pointer;
+
+  @media screen and (max-width: 600px){
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
   `
 
   const HeaderTitle = styled.h1`
   font-size: 5.5vw; 
   color: ${props => props.color};
   cursor: default;
-  @media screen and (max-width: 800px){
+  
+  @media screen and (max-width: 600px){
    font-size : 10vw;
+   display: flex;
+   align-items: center;
+   justify-content: center;
   }
 `
 
 const UserWrap = styled.div`
-  width: 16vw;
+  margin-right: 0.8vw;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 600px){
+    margin-bottom: 20px;
+  }
 
   /* @media screen and (max-width: 800px){
 
@@ -74,8 +91,8 @@ const UserWrap = styled.div`
 
 const StUser = styled.div`
   min-width: fit-content;
-  margin: 6px;
-  font-size: 0.8rem;
+  margin-left: 6px;
+  font-size: 0.9rem;
   cursor: default;
 `
 const UserNav = styled(StUser)`

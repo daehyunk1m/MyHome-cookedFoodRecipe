@@ -31,6 +31,16 @@ border-radius: 7px;
 border: 0.5px solid gray;
 border: 0.3px solid white;
 box-shadow: 0px 0px 10px 4px rgba(100, 100, 100, 0.1);
+
+@media screen and (max-width: 900px){
+    padding: 20px;
+    margin: 0px;
+  }
+@media screen and (max-width: 600px){
+    padding: 20px;
+    margin: 15px;
+    
+  }
 `
 
 const PostNick = styled.p`
@@ -40,11 +50,19 @@ const PostNick = styled.p`
 
 const PostImg = styled.img`
   width: 20vw;
-  height: 20vh;
+  height: 30vh;
   
-
   background-color: blue;
   cursor: pointer;
+
+  @media screen and (max-width: 900px){
+    width: 40vW;
+    height: 40vh;
+    }
+  @media screen and (max-width: 600px){
+    width: 80vW;
+    height: 40vh;
+  }
 `
 
 const LikectnWrap = styled.div`

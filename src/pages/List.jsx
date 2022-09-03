@@ -31,19 +31,34 @@ const List = () => {
 export default List;
 
 const PostContainer = styled.div`
-  width: 95vw;
+  width: 95%;
   margin: auto;
   
-  display: flex;
-  /* align-items: center; */
-  justify-content: space-between;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  
+  @media screen and (max-width: 900px){
+    /* width: 80%; */
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 40px;
+  }
+
+  @media screen and (max-width: 600px){
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 5px;
+  }
+  
   
 `
 
 const BtnWrap = styled.div`
-  width: 100vw;
-  height: 100px;
-  margin: auto;
+  
+  height: 120px;
+  /* padding: 10px; */
+  margin: 4vh auto;
   display: flex;
   align-items: center;
   justify-content: center;
