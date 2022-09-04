@@ -1,18 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import SignUpForm from "../components/signup/SignUpForm";
 import Header from "../components/common/Header";
+import CreateForm from "../components/form/CreateForm";
 
-const Signup = () => {
+const Create = () => {
+
   return (
     <StAddForm>
-      <Header />
-      <SignUpForm />
+      <Header/>
+      <CreateForm />
     </StAddForm>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Create;
 
 const StAddForm = styled.div`
   padding-top: 140px;

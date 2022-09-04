@@ -1,18 +1,19 @@
 import React from "react";
-import LogIn from "../components/login/LogIn";
-
+import styled from "styled-components";
+import Header from "../components/common/Header";
+import LoginForm from "../components/login/LogInForm";
 
 const Login = () => {
-
   return (
-    <div>
-      <LogIn/>
-    </div>
-  )
-}
+    <StAddForm>
+      <Header />
+      <LoginForm />
+    </StAddForm>
+  );
+};
 
 export default Login;
 
-
-
-
+const StAddForm = styled.div`
+  padding-top: 140px;
+`;
