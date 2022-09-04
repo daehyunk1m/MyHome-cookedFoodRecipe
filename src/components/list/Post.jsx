@@ -51,6 +51,7 @@ const PostNick = styled.p`
 const PostImg = styled.img`
   width: 20vw;
   height: 30vh;
+
   
   background-color: blue;
   cursor: pointer;
@@ -62,6 +63,10 @@ const PostImg = styled.img`
   @media screen and (max-width: 600px){
     width: 80vW;
     height: 40vh;
+  }
+
+  @media screen and (min-height: 1200px){
+    max-height: 16vh;
   }
 `
 
