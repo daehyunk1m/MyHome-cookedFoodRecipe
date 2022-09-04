@@ -8,9 +8,7 @@ const Post = ({nickname, title, likecnt, url}) => {
 
   return(
     <PostContainer>
-      <PostNick onClick={() => navigate(`/api/postlist:postId`)}>닉넴{nickname}</PostNick>
-      <PostImg onClick={() => navigate(`/api/postlist:postId`)}/>
-      {url}
+      <PostNick onClick={() => navigate(`/api/postlist:postId`)}>닉넴{nickname}</PostNick>   
       <LikectnWrap>
         <LikeSymbol >❤️</LikeSymbol>
         <LikeCtnN>100{likecnt}</LikeCtnN>
@@ -46,28 +44,6 @@ box-shadow: 0px 0px 10px 4px rgba(100, 100, 100, 0.1);
 const PostNick = styled.p`
   margin-bottom: 5px;
   cursor: pointer;
-`
-
-const PostImg = styled.img`
-  width: 20vw;
-  height: 30vh;
-
-  
-  background-color: blue;
-  cursor: pointer;
-
-  @media screen and (max-width: 900px){
-    width: 40vW;
-    height: 40vh;
-    }
-  @media screen and (max-width: 600px){
-    width: 80vW;
-    height: 40vh;
-  }
-
-  @media screen and (min-height: 1200px){
-    max-height: 16vh;
-  }
 `
 
 const LikectnWrap = styled.div`
