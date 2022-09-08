@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
@@ -14,33 +15,71 @@ const SignUpForm = () => {
   
 //초기값
   const initialState = {
-    loginId: "",
-    password:"",
-    nickname:""
+    email: "",
+    password: "",
+    nickname: ""
   };
 
 
-  const [login, setLogin] = useState(initialState);
+  const [signup, setSignup] = useState(initialState);
 
+  // const [login, setLogin] = useState([]);
 
   // event handler
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
-    setLogin({ ...login, [name]: value});
+    setSignup({ ...signup, [name]: value});
   };
 
+  const signUp_handler = async (event) => {
 
+    // 유효성 검증 코드
+    event.preventDefault();
+    if ( signup.email.trim() === "" || signup.password.trim() === "" || signup.nickname.trim() === "" ){
+      return alert("모든 칸을 채워주세요!")
+    };
+
+    try {
+
+      // const { data } = await axios.post("http://localhost:3001/login", {...signup}); //json-server
+      const response = await axios.post("http://15.164.169.141:8080/auth/signup", { ...signup })
+      // .then(response => console.log("response: ",response));
+      console.log("👏 Axios Work >>> ", response)
+      setSignup(initialState)
+      
+      
+      
+      if (response.status === 200) {
+
+        window.alert("가입을 환영합니다 🎉")
+        console.log("newMemberSignUp: ",response.data)
+        navigate('/auth/login')
+
+      } else {
+        console.log("Not Ok")
+        console.error(response)
+        // 데이터는 넘어가는데, 왜 ok가 안되는가?
+      };
+
+    } catch (error) {
+      console.error(error)
+      setSignup(initialState)    
+      window.alert("다른 아이디와 닉네임을 입력해주세요..!")
+
+    }
+    
+  };
 
   return (
     <StForm>
-      <form>
+      <form onSubmit={signUp_handler}>
         <div>
           <div>
             <label>아이디</label> 
             <input
               type="text"
-              name="loginId"
-              value={login.loginId}
+              name="email"
+              value={signup.email}
               onChange={onChangeHandler}
               maxLength="10"
             />
@@ -51,7 +90,7 @@ const SignUpForm = () => {
             <input
               type="password"
               name="password"
-              value={login.password}
+              value={signup.password}
               onChange={onChangeHandler}
               maxLength="15"
             />
@@ -62,7 +101,7 @@ const SignUpForm = () => {
             <input
               type="text"
               name="nickname"
-              value={login.nickname}
+              value={signup.nickname}
               onChange={onChangeHandler}
               maxLength="15"
             />
@@ -72,13 +111,14 @@ const SignUpForm = () => {
           <div>
             <div>
               <CustomButton
-              title="가입하기"
+              title="가입하기" type="submit"
+              />
+              <CustomButton
+              title="로그인"
                   onClick={() => {
-                    navigate("/");
+                    navigate("/auth/login");
                   }}
               />
-            
-            
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
@@ -14,10 +15,9 @@ const LoginForm = () => {
   
 //초기값
   const initialState = {
-    loginId: "",
-    password:""
+    email: "",
+    password: ""
   };
-
 
   const [login, setLogin] = useState(initialState);
 
@@ -29,17 +29,63 @@ const LoginForm = () => {
   };
 
 
+  const logIn_handler = async (event) => {
+    // 유효성 검증 코드
+    event.preventDefault();
+    if ( login.email.trim() === "" || login.password.trim() === "" ){
+      
+      return alert("모든 칸을 채워주세요!")
+    };
+    // console.log(login)
+
+    try {
+
+      // const { data } = await axios.post("http://localhost:3001/login", {...login});
+      const response = await axios.post("http://15.164.169.141:8080/auth/login", 
+      { ...login }, 
+      // { withCredentials: true } 
+      );
+
+      console.log("👏 Axios Work >>> ", response)
+      setLogin(initialState)
+            
+      
+      if (response.status === 200) {
+
+        window.alert("나의 집밥 레시피에 오신 것을 환영합니다 🎉")
+        localStorage.setItem('wtw-token', response.data.accessToken)
+        localStorage.setItem('nickname', response.data.nickname)
+        console.log("memberLogIn: ",response.data)
+
+        navigate('/api/postlist') //go home
+
+      } else {
+        console.log("Not Ok")
+        console.error(response)
+        // 데이터는 넘어가는데, 왜 ok가 안되는가?
+      };
+
+    } catch {
+      window.alert("회원 정보가 없습니다 🧐")
+      setLogin(initialState)    
+      console.log("IntoCatch")
+      
+
+    }
+    
+  };
+
 
   return (
     <StForm>
-      <form>
+      <form onSubmit={logIn_handler}>
         <div>
           <div>
             <label>아이디</label> 
             <input
               type="text"
-              name="loginId"
-              value={login.loginId}
+              name="email"
+              value={login.email}
               onChange={onChangeHandler}
               maxLength="10"
             />
@@ -62,17 +108,20 @@ const LoginForm = () => {
               <CustomButton
               title="회원가입"
                   onClick={() => {
-                    navigate("signup");
+                    navigate("/auth/signup");
                   }}
               />
               <CustomButton
-                title="로그인"/>
+                title="로그인" type="submit"
+                
+                />
 
                 <CustomButton
-                title="글 작성"
+                title="글 작성" 
                 onClick={() => {
                     navigate("create");
-                  }}/>
+                  }}
+                  />
 
                 <CustomButton
                 title="다시 작성"
